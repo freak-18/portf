@@ -51,6 +51,34 @@ body, html {
   color: #ffffff;
 }
 
+.nav-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #1e3a8a;
+  min-width: 220px;
+  white-space: nowrap;
+}
+
+.app.dark .nav-title {
+  color: #ffffff;
+}
+
+.cursor {
+  display: inline-block;
+  font-weight: 300;
+  animation: blink 0.7s step-end infinite;
+  color: #2563eb;
+}
+
+.app.dark .cursor {
+  color: #a5b4fc;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
 nav a {
   margin-left: 1.5rem;
   text-decoration: none;

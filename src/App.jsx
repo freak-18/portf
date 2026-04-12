@@ -7,9 +7,43 @@ import Certificates from "./components/Certificates";
 import TechStack from "./components/TechStack";
 import ContactForm from "./components/ContactForm";
 
+function useTypingLoop(words, typeSpeed = 100, deleteSpeed = 60, pause = 1500) {
+  const [displayed, setDisplayed] = useState('');
+  useEffect(() => {
+    let wordIndex = 0;
+    let charIndex = 0;
+    let deleting = false;
+    let timer;
+    const tick = () => {
+      const current = words[wordIndex];
+      if (!deleting) {
+        charIndex++;
+        setDisplayed(current.slice(0, charIndex));
+        if (charIndex === current.length) {
+          deleting = true;
+          timer = setTimeout(tick, pause);
+          return;
+        }
+      } else {
+        charIndex--;
+        setDisplayed(current.slice(0, charIndex));
+        if (charIndex === 0) {
+          deleting = false;
+          wordIndex = (wordIndex + 1) % words.length;
+        }
+      }
+      timer = setTimeout(tick, deleting ? deleteSpeed : typeSpeed);
+    };
+    timer = setTimeout(tick, typeSpeed);
+    return () => clearTimeout(timer);
+  }, []);
+  return displayed;
+}
+
 function App() {
   const [dark, setDark] = useState(false);
   const [repos, setRepos] = useState(20);
+  const navText = useTypingLoop(['Portfolio', 'Bharani Prasanth'], 160, 100, 1800);
 
   useEffect(() => {
     fetch('https://api.github.com/users/freak-18')
@@ -24,7 +58,9 @@ function App() {
 
       <div className={`app ${dark ? "dark" : ""}`}>
         <header className="header">
-          <h1>Portfolio</h1>
+          <h1 className="nav-title">
+            {navText}<span className="cursor">|</span>
+          </h1>
           <nav>
             <a href="#about">About</a>
             <a href="#projects">Projects</a>
