@@ -34,7 +34,7 @@ const projects = [
     description: 'Full-stack collaborative app builder with real-time boards, flowcharts, frontend code generation, and AI-powered backend scaffolding.',
     tags: ['React', 'TypeScript', 'Socket.io', 'Groq AI'],
     color: '#7c3aed',
-    link: '#',
+    link: 'https://collab-boardd.vercel.app/',
   },
 ];
 
