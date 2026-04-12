@@ -36,6 +36,7 @@ function useTypingLoop(words, typeSpeed = 100, deleteSpeed = 60, pause = 1500) {
     };
     timer = setTimeout(tick, typeSpeed);
     return () => clearTimeout(timer);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return displayed;
 }
