@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import SpiderWeb from "./components/SpiderWeb";
 import "./App.css";
 import About from "./components/About";
@@ -9,6 +9,14 @@ import ContactForm from "./components/ContactForm";
 
 function App() {
   const [dark, setDark] = useState(false);
+  const [repos, setRepos] = useState(20);
+
+  useEffect(() => {
+    fetch('https://api.github.com/users/freak-18')
+      .then((r) => r.json())
+      .then((u) => { if (u.public_repos) setRepos(u.public_repos); })
+      .catch(() => {});
+  }, []);
 
   return (
     <>
@@ -43,7 +51,7 @@ function App() {
                   className="github-profile-link"
                 >View Profile</a>
               </div>
-              <span className="github-repos-badge">19 Repos</span>
+              <span className="github-repos-badge">{repos} Repos</span>
             </div>
             <img
               src={`https://ghchart.rshah.org/${dark ? '39d353' : '40c463'}/freak-18`}
