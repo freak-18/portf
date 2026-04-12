@@ -29,7 +29,7 @@ function App() {
             <a href="#about">About</a>
             <a href="#projects">Projects</a>
             <a href="#certificates">Certificates</a>
-            <a href="#techstack">Tech Stack</a>
+            <a href="#techstack">Skills</a>
             <a href="#contact">Contact</a>
           </nav>
         </header>
@@ -89,7 +89,7 @@ function App() {
           <div className="divider"></div>
 
           <section id="techstack" className="section parallax">
-            <h2>Tech Stack</h2>
+            <h2>Skills</h2>
             <TechStack />
           </section>
 
