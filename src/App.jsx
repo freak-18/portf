@@ -9,6 +9,14 @@ import ContactForm from "./components/ContactForm";
 
 function App() {
   const [dark, setDark] = useState(false);
+  const scrollTo = (id) => {
+    const el = document.getElementById(id);
+    const header = document.querySelector('.header');
+    if (el && header) {
+      const top = el.getBoundingClientRect().top + window.scrollY - header.offsetHeight - 16;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  };
   const [repos, setRepos] = useState(20);
 
   useEffect(() => {
@@ -26,11 +34,11 @@ function App() {
         <header className="header">
           <h1>Portfolio</h1>
           <nav>
-            <a href="#about">About</a>
-            <a href="#projects">Projects</a>
-            <a href="#certificates">Certificates</a>
-            <a href="#techstack">Skills</a>
-            <a href="#contact">Contact</a>
+            <a href="#about" onClick={(e) => { e.preventDefault(); scrollTo('about'); }}>About</a>
+            <a href="#projects" onClick={(e) => { e.preventDefault(); scrollTo('projects'); }}>Projects</a>
+            <a href="#certificates" onClick={(e) => { e.preventDefault(); scrollTo('certificates'); }}>Certificates</a>
+            <a href="#techstack" onClick={(e) => { e.preventDefault(); scrollTo('techstack'); }}>Skills</a>
+            <a href="#contact" onClick={(e) => { e.preventDefault(); scrollTo('contact'); }}>Contact</a>
           </nav>
         </header>
 
