@@ -19,7 +19,7 @@ const stack = [
   {
     category: 'Tools & Others',
     color: '#f59e0b',
-    techs: ['Git', 'GitHub', 'VS Code', 'AI/ML'],
+    techs: ['GitHub', 'VS Code', 'Vercel', 'Render'],
   },
 ];
 
