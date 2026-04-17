@@ -459,10 +459,10 @@ footer {
 
 .project-card h3 { font-size: 1.2rem; font-weight: 700; color: var(--accent); }
 
-.project-card p { font-size: 0.95rem; color: #6b7280; }
+.project-card p { font-size: 0.95rem; color: #6b7280; flex: 1; }
 .app.dark .project-card p { color: #9ca3af; }
 
-.tag-row { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.tag-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: auto; }
 
 .tag { font-size: 0.78rem; font-weight: 600; padding: 0.25rem 0.7rem; border-radius: 999px; }
 
