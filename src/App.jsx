@@ -44,7 +44,7 @@ function useTypingLoop(words, typeSpeed = 100, deleteSpeed = 60, pause = 1500) {
 function App() {
   const [dark, setDark] = useState(false);
   const [repos, setRepos] = useState(20);
-  const navText = useTypingLoop(['Portfolio', 'Bharani Prasanth'], 160, 100, 1800);
+  const navText = useTypingLoop(['Portfolio', 'Bharani Prasanth', 'M.TECH CSE'], 160, 100, 1800);
 
   useEffect(() => {
     fetch('https://api.github.com/users/freak-18')
