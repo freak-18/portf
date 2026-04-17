@@ -180,11 +180,14 @@ const SpiderWeb = ({ dark }) => {
         ctx.rotate(s.rotation);
         ctx.scale(s.scale, s.scale);
         ctx.globalAlpha = s.opacity;
-        ctx.filter = 'none';
+        ctx.filter = dark
+          ? `brightness(2) drop-shadow(0 0 8px #fff) drop-shadow(0 0 3px #aaa)`
+          : 'none';
         ctx.font = `${s.size}px serif`;
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
         ctx.fillText('\uD83D\uDD77', 0, 0);
+        ctx.filter = 'none';
         ctx.restore();
       }
 
