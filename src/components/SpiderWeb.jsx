@@ -189,7 +189,7 @@ const SpiderWeb = ({ dark }) => {
         ctx.filter = dark
           ? `brightness(2) drop-shadow(0 0 8px #fff) drop-shadow(0 0 3px #aaa)`
           : 'none';
-        ctx.font = `${dark ? s.size * 1.3 : s.size}px serif`;
+        ctx.font = `${s.size}px serif`;
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
         ctx.fillText('\uD83D\uDD77', 0, 0);
