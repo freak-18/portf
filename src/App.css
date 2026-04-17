@@ -21,7 +21,7 @@ body, html {
 }
 
 .app.dark {
-  background: #1e1e2f;
+  background: transparent;
   color: #f4f4f4;
 }
 
