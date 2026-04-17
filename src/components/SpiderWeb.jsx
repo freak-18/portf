@@ -123,12 +123,6 @@ const SpiderWeb = ({ dark }) => {
     const draw = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      // draw dark background on canvas
-      if (dark) {
-        ctx.fillStyle = '#1e1e2f';
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-      }
-
       // update & draw webs
       for (let i = webs.length - 1; i >= 0; i--) {
         const w = webs[i];

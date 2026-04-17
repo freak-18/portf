@@ -25,6 +25,10 @@ body, html {
   color: #f4f4f4;
 }
 
+body:has(.app.dark) {
+  background: #1e1e2f;
+}
+
 /* Header */
 .header {
   background: #dbeafe;
