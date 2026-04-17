@@ -2,18 +2,11 @@ import React from 'react';
 
 const projects = [
   {
-    title: 'Expense Tracker',
+    title: 'Expense Tracker (Basic)',
     description: 'Track income and expenses with a modern wallet-style interface and interactive charts.',
     tags: ['React', 'Chart.js', 'CSS'],
     color: '#3b82f6',
     link: 'https://wallet-expense-tracker-18.netlify.app/',
-  },
-  {
-    title: 'Portfolio Website',
-    description: 'A responsive personal site to showcase skills, projects, and allow contact form submission.',
-    tags: ['React', 'Node.js', 'MongoDB'],
-    color: '#8b5cf6',
-    link: '#',
   },
   {
     title: 'Real-Time Quiz Website',
