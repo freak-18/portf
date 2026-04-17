@@ -15,8 +15,8 @@ const SpiderWeb = ({ dark }) => {
     resize();
     window.addEventListener('resize', resize);
 
-    const WEB_COLOR  = dark ? 'rgba(255,255,255,' : 'rgba(0,0,0,';
-    const GLOW       = dark ? '#ffffff' : '#000000';
+    const WEB_COLOR = dark ? 'rgba(255,255,255,' : 'rgba(0,0,0,';
+    const WEB_OPACITY_BOOST = dark ? 1.8 : 1;
 
     // ── Floating spiders ──
     const spiders = Array.from({ length: 10 }, () => ({
@@ -25,7 +25,7 @@ const SpiderWeb = ({ dark }) => {
       vx: (Math.random() - 0.5) * 0.7,
       vy: (Math.random() - 0.5) * 0.7,
       size: Math.random() * 16 + 12,
-      opacity: Math.random() * 0.35 + 0.15,
+      opacity: dark ? Math.random() * 0.5 + 0.4 : Math.random() * 0.35 + 0.15,
       rotation: Math.random() * Math.PI * 2,
       rotSpeed: (Math.random() - 0.5) * 0.012,
       scale: 1,
@@ -52,7 +52,7 @@ const SpiderWeb = ({ dark }) => {
         ctx.beginPath();
         ctx.moveTo(x, y);
         ctx.lineTo(x + Math.cos(angle) * currentSize, y + Math.sin(angle) * currentSize);
-        ctx.strokeStyle = WEB_COLOR + '0.6)';
+        ctx.strokeStyle = WEB_COLOR + Math.min(0.6 * WEB_OPACITY_BOOST, 1) + ')';
         ctx.lineWidth = 0.8;
         ctx.stroke();
       }
@@ -180,8 +180,10 @@ const SpiderWeb = ({ dark }) => {
         ctx.rotate(s.rotation);
         ctx.scale(s.scale, s.scale);
         ctx.globalAlpha = s.opacity;
-        if (dark) ctx.filter = `brightness(1.4) drop-shadow(0 0 6px ${GLOW})`;
-        ctx.font = `${s.size}px serif`;
+        ctx.filter = dark
+          ? `brightness(2) drop-shadow(0 0 8px #fff) drop-shadow(0 0 3px #aaa)`
+          : 'none';
+        ctx.font = `${dark ? s.size * 1.3 : s.size}px serif`;
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
         ctx.fillText('\uD83D\uDD77', 0, 0);
